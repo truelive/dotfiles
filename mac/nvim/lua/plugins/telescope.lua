@@ -19,6 +19,9 @@ return {
             ["<C-j>"] = actions.move_selection_next, -- move to next result
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
+          n = {
+            ["d"] = actions.delete_buffer ,
+          }
         },
       },
     })
@@ -32,5 +35,6 @@ return {
     keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
     keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+    keymap.set("n", "<S-h>", "<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<cr>", { desc = "List opened buffers" })
   end,
 }
